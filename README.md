@@ -8,6 +8,27 @@ All imports are listed with version and whether or not they are found from --imp
 
 When no --imports are provided, root folder of project provided is used.
 
+# Python Dependencies
+
+## qmlprojectscanner.py
+os
+sys
+ast
+re
+argparse
+pyparsing
+
+## cbmetadatascanner.py
+os
+sys
+ast
+re
+argparse
+pyparsing
+json
+
+
+
 # Usage
 usage: qmlprojectscanner.py [-h] [--imports [IMPORTS [IMPORTS ...]]]
                             inputProject
