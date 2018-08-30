@@ -8,6 +8,7 @@ All imports are listed with version and whether or not they are found from --imp
 
 When no --imports are provided, root folder of project provided is used.
 
+# Usage
 usage: qmlprojectscanner.py [-h] [--imports [IMPORTS [IMPORTS ...]]]
                             inputProject
 
@@ -18,3 +19,7 @@ optional arguments:
     -h, --help              show this help message and exit
     --imports [IMPORTS [IMPORTS ...]]
                             List of QML import folders used for matching import
+
+# Example
+
+python3 qmlprojectscanner.py ../HomeScreen/HomeScreen.pro --imports /Path/To/Qt/5.11.1/qml/
