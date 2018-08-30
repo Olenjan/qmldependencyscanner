@@ -1,4 +1,3 @@
-
 import argparse
 from qmltraverser import *
 import json
