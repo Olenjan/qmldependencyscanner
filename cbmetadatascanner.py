@@ -3,15 +3,14 @@ import argparse
 from qmltraverser import *
 import json
 
-inputfile = sys.argv[1]
 importFileList=[]
 CLI=argparse.ArgumentParser()
 CLI.add_argument("inputmetadata", type=str,
                     help="CB Application metadata to analyze")
-CLI.add_argument(
-                "--imports",  # name on the CLI - drop the `--` for positional/required parameters
-                                nargs="*",  # 0 or more values expected => creates a list
-                                                type=str#,
+CLI.add_argument("--imports",
+                    help="",
+                    nargs="*",
+                    type=str
                                                                 )
 args = CLI.parse_args()
 
@@ -19,9 +18,9 @@ if not args.inputmetadata:
     print("No input metadata(.json) specified!")
     raise SystemExit
 
-metadatafilefullpath = os.path.realpath(args.inputmetadata)
+inputfile=args.inputmetadata
+metadatafilefullpath = os.path.realpath(inputfile)
 rootfolder=os.path.dirname((metadatafilefullpath))
-"""[rootfolder , "/mnt/c/Qt/5.11.1/msvc2017_64/qml/"]"""
 if args.imports:
     importFolderList = args.imports
 else:

@@ -1,15 +1,14 @@
 import argparse
 from qmltraverser import *
 
-inputfile = sys.argv[1]
 importFileList=[]
 CLI=argparse.ArgumentParser()
 CLI.add_argument("inputProject", type=str,
                     help="Project to analyze")
-CLI.add_argument(
-                "--imports",  # name on the CLI - drop the `--` for positional/required parameters
-                                nargs="*",  # 0 or more values expected => creates a list
-                                                type=str#,
+CLI.add_argument("--imports",
+                    help="List of QML import folders used for matching imports",
+                    nargs="*",
+                    type=str
                                                                 )
 args = CLI.parse_args()
 
@@ -17,7 +16,8 @@ if not args.inputProject:
     print("No input project(.pro) specified!")
     raise SystemExit
 
-inputfilefullpath = os.path.realpath(args.inputProject)#inputfile)
+inputfile=args.inputProject
+inputfilefullpath = os.path.realpath(inputfile)#inputfile)
 rootfolder=os.path.dirname((inputfilefullpath))
 
 if args.imports:
