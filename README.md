@@ -56,3 +56,6 @@ MouseArea
 ---------------------------------------------------
 ---------------------------------------------------
 ```
+
+line ```File '/Path/To/project/nonexistant.qml' not found.``` shows that one file included in project does not exist.
+All files not found are presented before scanning
