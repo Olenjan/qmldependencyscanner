@@ -8,7 +8,7 @@ All imports are listed with version and whether or not they are found from --imp
 
 When no --imports are provided, root folder of project provided is used.
 
-# Python Dependencies
+# Python 3 Dependencies
 
 ##### qmlprojectscanner.py
 os<br/>
