@@ -1,4 +1,10 @@
 
+"""
+
+This read in json file with fields 'id', 'name', 'viewFile'
+and scans viewFile
+"""
+
 import argparse
 from qmltraverser import *
 import json
