@@ -27,7 +27,7 @@ Note: Relative and absolute paths can be used.
 python3 qmlprojectscanner.py /Path/To/project.pro --imports /Path/To/Qt/5.11.1/qml/
 
 ## Example output
-
+```
 File '/Path/To/project/nonexistant.qml' not found.
 ---------------------------------------------------
 ----------------------Imports----------------------
@@ -55,3 +55,4 @@ GamePad
 MouseArea
 ---------------------------------------------------
 ---------------------------------------------------
+```
