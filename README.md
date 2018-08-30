@@ -10,21 +10,21 @@ When no --imports are provided, root folder of project provided is used.
 
 # Python Dependencies
 
-## qmlprojectscanner.py
-os
-sys
-ast
-re
-argparse
+##### qmlprojectscanner.py
+os<br/>
+sys<br/>
+ast<br/>
+re<br/>
+argparse<br/>
 pyparsing
 
-## cbmetadatascanner.py
-os
-sys
-ast
-re
-argparse
-pyparsing
+#### cbmetadatascanner.py
+os<br/>
+sys<br/>
+ast<br/>
+re<br/>
+argparse<br/>
+pyparsing<br/>
 json
 
 
