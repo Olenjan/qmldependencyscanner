@@ -11,6 +11,35 @@ def getModules(data):
         modules.append(tplt[0])
     return modules
 
+def parseqmldirresourceline(line):
+    requery = "(([^\s]+) ([-+]?[0-9]*\.?[0-9]*)) ([^\s]+)+[.qml]"
+
+    matched = re.match(requery, line)
+
+    print(line)
+    if matched == None:
+        return None
+
+    name = matched.groups(0)[1]
+    version = matched.groups(1)[2]
+    return {
+        "name": name,
+        "version": version,
+    }
+
+def parseqmldirmoduleidline(line):
+    requery = "module ([^\s]+)"
+
+    matched = re.match(requery, line)
+
+    if matched == None:
+        return None
+
+    name = matched.groups(0)[0]
+    return {"name": name}
+
+
+
 def parseimportline(line):
     # Splits into import <Module> <version> | as <alias>
     splitLine = re.sub(' +',' ', line).split(' ')
