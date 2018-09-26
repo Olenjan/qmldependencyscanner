@@ -1,23 +1,32 @@
 import argparse
-import qmlscanfile
+import qmldependencyscanner.qmlscanfile
 
 def getModuleID(content):
     for line in content.splitlines():
-        tmpqmlid = qmlscanfile.parseqmldirmoduleidline(line)
+        tmpqmlid = qmldependencyscanner.qmlscanfile.parseqmldirmoduleidline(line)
         if tmpqmlid is not None:
                 return tmpqmlid
     return None
     
 
 def getResourceID(content):
+    result = []
     for line in content.splitlines():
-        print("getting resource from line: %s" % line)
-        tmpresourec = qmlscanfile.parseqmldirresourceline(line)
+        tmpresourec = qmldependencyscanner.qmlscanfile.parseqmldirresourceline(line)
         if tmpresourec is not None:
-            return tmpresourec
-    return None
+            result.append(tmpresourec)
+    return result
 
 
+def getPluginResource(content):
+    result = []
+    for line in content.splitlines():
+        tmppluginrc = qmldependencyscanner.qmlscanfile.parseqmldirpluginline(line)
+        if tmppluginrc is not None:
+            result.append(tmppluginrc)
+    return result
+
+"""
 importFileList=[]
 CLI=argparse.ArgumentParser()
 CLI.add_argument("qmldir", type=str,
@@ -35,10 +44,14 @@ with open(inputfile, 'r') as file:
     moduleName = ""
     moduleID = getModuleID(content)
     resourceIDs = getResourceID(content)
+    pluginresources = getPluginResource(content)
 
-    print(moduleID)
-    print(resourceIDs)
+    print("Modules: %s" % moduleID)
+    print("resources: %s" %resourceIDs)
+    print("plugins: %s" %pluginresources)
 
-     
-
-
+    # name moduleID is used when saving to disk, access via moduleID
+    # resources are local files. must exist
+    # plugin describes <plugin_name>d.dll or <plugin_name>.dll for windows
+    #   and lib<plugin_name>.so for unix
+"""
