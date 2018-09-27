@@ -17,7 +17,6 @@ def getResourceID(content):
             result.append(tmpresourec)
     return result
 
-
 def getPluginResource(content):
     result = []
     for line in content.splitlines():
@@ -25,29 +24,3 @@ def getPluginResource(content):
         if tmppluginrc is not None:
             result.append(tmppluginrc)
     return result
-
-
-importFileList=[]
-CLI=argparse.ArgumentParser()
-CLI.add_argument("qmldir", type=str,
-                    help="qmldir to analyze")
-CLI.add_argument("--imports",
-                    help="List of QML import folders used for matching imports",
-                    nargs="*",
-                    type=str)
-
-args = CLI.parse_args()
-inputfile=args.qmldir
-
-with open(inputfile, 'r') as file:
-    content = file.read()
-    moduleName = ""
-    moduleID = getModuleID(content)
-    resourceIDs = getResourceID(content)
-
-    print(moduleID)
-    print(resourceIDs)
-
-     
-
-

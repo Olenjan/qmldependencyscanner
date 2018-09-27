@@ -51,6 +51,17 @@ def parseqmldirmoduleidline(line):
     name = matched.groups(0)[0]
     return {"name": name}
 
+def parseqmldirpluginline(line):
+    requery = "plugin ([^\s]+)"
+
+    matched = re.match(requery, line)
+
+    if matched == None:
+        return None
+
+    name = matched.groups(0)[0]
+    return {"plugin": name}
+
 
 
 def parseimportline(line):
