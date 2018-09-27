@@ -27,6 +27,19 @@ def parseqmldirresourceline(line):
         "version": version,
     }
 
+	
+def parseqmldirpluginline(line):
+    requery = "plugin ([^\s]+)"
+
+    matched = re.match(requery, line)
+
+    if matched == None:
+        return None
+
+    name = matched.groups(0)[0]
+    return {"plugin": name}
+
+	
 def parseqmldirmoduleidline(line):
     requery = "module ([^\s]+)"
 

@@ -1,21 +1,30 @@
 import argparse
-import qmlscanfile
+import qmldependencyscanner.qmlscanfile
 
 def getModuleID(content):
     for line in content.splitlines():
-        tmpqmlid = qmlscanfile.parseqmldirmoduleidline(line)
+        tmpqmlid = qmldependencyscanner.qmlscanfile.parseqmldirmoduleidline(line)
         if tmpqmlid is not None:
                 return tmpqmlid
     return None
     
 
 def getResourceID(content):
+    result = []
     for line in content.splitlines():
-        print("getting resource from line: %s" % line)
-        tmpresourec = qmlscanfile.parseqmldirresourceline(line)
+        tmpresourec = qmldependencyscanner.qmlscanfile.parseqmldirresourceline(line)
         if tmpresourec is not None:
-            return tmpresourec
-    return None
+            result.append(tmpresourec)
+    return result
+
+
+def getPluginResource(content):
+    result = []
+    for line in content.splitlines():
+        tmppluginrc = qmldependencyscanner.qmlscanfile.parseqmldirpluginline(line)
+        if tmppluginrc is not None:
+            result.append(tmppluginrc)
+    return result
 
 
 importFileList=[]
