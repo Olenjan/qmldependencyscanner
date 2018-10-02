@@ -16,7 +16,6 @@ def parseqmldirresourceline(line):
 
     matched = re.match(requery, line)
 
-    print(line)
     if matched == None:
         return None
 
