@@ -2,7 +2,7 @@ import os
 import sys
 import ast
 import re
-import qmlscanfile
+from . import qmlscanfile
 import argparse
 
 def getDistFiles(content):
