@@ -1,4 +1,3 @@
-
 """
 for use via command line
 prints list of imported modules found in qml tree
@@ -6,19 +5,20 @@ prints all except modules starting with "Qt"
 """
 
 
-from qmldependencyscanner import *
-import qmldependencyscanner.qmlscanfile
-import qmldependencyscanner.qmltraverser
+import qmlscanfile
+import qmltraverser
 import os 
+import sys
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = os.path.dirname(os.path.realpath(sys.argv[1]))
 
+built_in_imports = []
 import_dependencies = []
 module_dependencies = []
 
-traverser = qmldependencyscanner.qmltraverser.CQmlTraverser(dir_path, "otioseMain.qml", list())
+print("Parsing: %s" % sys.argv[1])
+traverser = qmltraverser.CQmlTraverser(dir_path, sys.argv[1], list())
 traverser.traverse()
-
 
 for i in traverser.ImportDependencies:
 	if i["name"][0:2] == "Qt":
