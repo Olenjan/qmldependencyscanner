@@ -2,7 +2,7 @@ import os
 import sys
 import ast
 import re
-import qmlscanfile
+import qmldependencyscanner.qmlscanfile
 import argparse
 
 def getDistFiles(content):
@@ -82,8 +82,8 @@ class CQmlTraverser():
         #rint("Traversing %s" % self.traversablefile)
         with open(self.traversablefile, 'r') as file:
             data = file.read()
-            qmlImports = qmlscanfile.getImports(data) 
-            qmlModules = qmlscanfile.getModules(data)
+            qmlImports = qmldependencyscanner.qmlscanfile.getImports(data) 
+            qmlModules = qmldependencyscanner.qmlscanfile.getModules(data)
             #print("Imports(%s): %s" % (len(qmlImports), qmlImports))
             #print("Modules(%s): %s" % (len(qmlModules), qmlModules))
             for m in qmlModules:
