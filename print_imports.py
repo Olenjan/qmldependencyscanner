@@ -13,6 +13,20 @@ import sys
 dir_path = os.path.dirname(os.path.realpath(sys.argv[1]))
 
 built_in_imports = []
+
+built_in_imports.append("CB_Metadata")
+built_in_imports.append("CB_PluginInterface")
+built_in_imports.append("CB_Window")
+built_in_imports.append("CB_Content")
+
+built_in_imports.append("CB_PopupContent")
+built_in_imports.append("CB_PopupQueue")
+
+built_in_imports.append("CB_GamePad")
+built_in_imports.append("CB_GamePadInputPanel")
+built_in_imports.append("CB_GamePadManager")
+built_in_imports.append("CB_DriveStringModel")
+
 import_dependencies = []
 module_dependencies = []
 
