@@ -1,3 +1,5 @@
+# Readme is out of date. No command line runnable scripts included
+
 # qmldependencyscanner
 
 QML Dependency scanner python script that scans all QML(.qml) files described in QT project(.qml)
