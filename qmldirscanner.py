@@ -10,6 +10,7 @@ def getModuleID(content):
     
 
 def getResourceID(content):
+    """"returns list of {\"name\": name, \"version\": version}"""
     result = []
     for line in content.splitlines():
         tmpresourec = qmldependencyscanner.qmlscanfile.parseqmldirresourceline(line)
